@@ -19,7 +19,7 @@ ips = st.selectbox('IPS',[1, 0])
 
 screen_size = st.number_input('Screen_Size')
 
-resolution = st.selectbox('Screen Resolution',['1366x768','1600x900','1920x1080','2304x1440','2560x1440','1560x1600','2880x1800'])
+resolution = st.selectbox('Screen Resolution',['1366x768','1600x900','1920x1080','2304x1440','2560x1440','1560x1600','2880x1800','2560x1600'])
 
 cpu = st.selectbox('CPU', df['Brand_Cpu'].unique())
 
