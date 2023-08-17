@@ -13,9 +13,9 @@ ram = st.selectbox('Ram (in GB)',[2,4,8,12,16,24,32,64])
 
 weight = st.number_input('weight')
 
-touchscreen = st.selectbox('Touchscreen',['Yes', 'No'])
+touchscreen = st.selectbox('Touchscreen',[1, 0])
 
-ips = st.selectbox('IPS',['Yes', 'No'])
+ips = st.selectbox('IPS',[1, 0])
 
 screen_size = st.number_input('Screen_Size')
 
@@ -31,21 +31,13 @@ gpu = st.selectbox('GPU', df['Brand_Gpu'].unique())
 
 os = st.selectbox('OpSys', df['OS'].unique())
 
+
+if st.button('Predict Price'):
+    ppi = None
+
 X_res = int(resolution.split('x')[0])
 Y_res = int(resolution.split('x')[1])
 ppi = (((X_res**2) + (Y_res**2))**0.5)/screen_size
-
-if st.button('Predict Price'):
-    if touchscreen == 'Yes':
-        touchscreen = 1
-    else:
-        touchscreen = 0
-        
-    if ips == 'Yes':
-        ips =  1
-    else:
-        ips = 0
-
 query = np.array([company,types,ram,weight,touchscreen,ips,ppi,cpu,hdd,ssd,gpu,os])
 
 query = query.reshape(1,12)
