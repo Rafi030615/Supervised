@@ -41,4 +41,4 @@ ppi = (((X_res**2) + (Y_res**2))**0.5)/screen_size
 query = np.array([company,types,ram,weight,touchscreen,ips,ppi,ssd,hdd,cpu,gpu,os])
 
 query = query.reshape(1,12)
-st.title("predicted in dollar : $." + str(int(np.exp(pipe.predict(query)[0]))))
+st.title("predicted in dollar : $ " + str(int(np.exp(pipe.predict(query)[0]))))
